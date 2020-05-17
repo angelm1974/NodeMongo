@@ -1,0 +1,17 @@
+extends ../node_modules/pug-bootstrap/_bootstrap.pug
+block body
+    .container
+        h1 Przykład MongoDB
+
+        ul
+        for klient in listaKlientow
+            p Imie: #{klient.imie}, Nazwisko: #{klient.nazwisko}
+
+        h2 WSTAWIANIE DANYCH
+            form( method='POST' action='/klienci/wstaw')
+                .form-group
+                    input#name.form-control(type="text" placeholder='Podaj Imię' name='imie')    
+                    input#name.form-control(type="text" placeholder='Podaj Nazwisko' name='nazwisko') 
+                    input#name.form-control(type="text" placeholder='Podaj Kolor' name='kolor')
+                    input#name.form-control(type="number" placeholder='Podaj wiek' name='wiek')     
+                button.btn.btn-primary(type='submit' action='/klienci/wstaw') Zapisz
